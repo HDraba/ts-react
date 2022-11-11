@@ -1,11 +1,26 @@
 import './NewExpense.css';
 
 import ExpenseForm from './ExpenseForm';
+import ExpenseDate from '../Expenses/ExpenseDate';
+
+interface enteredExpenseDataI {
+  title: string;
+  amount: number;
+  date: Date;
+}
 
 const NewExpense = () => {
+  const saveExpenseDataHandler = (enteredExpenseData: enteredExpenseDataI) => {
+    const expenseData = {
+      ...enteredExpenseData,
+      id: Math.random().toString(),
+    };
+    console.log(expenseData);
+  };
+
   return (
     <div className="new-expense">
-      <ExpenseForm />
+      <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
     </div>
   );
 };
