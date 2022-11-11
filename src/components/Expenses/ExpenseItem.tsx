@@ -1,3 +1,5 @@
+import {useState} from 'react'
+
 import Card from '../UI/Card';
 import ExpenseDate from './ExpenseDate';
 import './ExpenseItem.css';
@@ -16,15 +18,26 @@ export interface ExpenseItemProps {
   amount: number;
   date: Date;
 }
-
 function ExpenseItem(props: ExpenseItemProps) {
+  
+  // takes a value, this value will make the component function to be called again 
+  // u give it the variable, it returns a special version of it and a function to assign a new value to it --> IN A ARRAY
+  // given value (props.title) is only considered the first time the function is executed
+  const [title, setTitle] = useState(props.title)
+
+  const clickHandler = () => {
+    setTitle('PARTY')
+    console.log(title);
+    
+  }
   return (
     <Card className="expense-item">
       <ExpenseDate date={props.date} />
       <div className="expense-item__description">
-        <h2>{props.title}</h2>
+        <h2>{title}</h2>
       </div>
       <div className="expense-item__price">${props.amount}</div>
+      <button onClick={clickHandler}>Change Title</button>
     </Card>
   );
 }
