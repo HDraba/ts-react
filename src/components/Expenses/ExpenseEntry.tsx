@@ -1,7 +1,5 @@
 import ExpenseItem, { ExpenseItemProps } from './ExpenseItem';
 
-import './ExpenseEntry.css'
-
 interface ExpenseEntryProps {
   content: ExpenseItemProps
 }

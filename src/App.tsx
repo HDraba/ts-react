@@ -1,6 +1,7 @@
-import ExpenseEntry from './components/ExpenseEntry';
+import ExpenseEntry from './components/Expenses/ExpenseEntry';
 
 import './App.css'
+import Card from './components//UI/Card';
 
 // components can be used like HTML elements
 // lower case = built-in HTML
@@ -33,12 +34,12 @@ function App() {
   return (
     <div>
       <h2>Let's get started! HEYHO</h2>
-      <div className="expenses">
+      <Card className="expenses">
         <ExpenseEntry content={expenses[0]} />
         <ExpenseEntry content={expenses[1]} />
         <ExpenseEntry content={expenses[2]} />
         <ExpenseEntry content={expenses[3]} />
-      </div>
+      </Card>
     </div>
   );
 }
