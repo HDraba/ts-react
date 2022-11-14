@@ -4,6 +4,7 @@ import ExpenseItem, { ExpenseItemProps } from './ExpenseItem';
 import ExpensesFilter from './ExpensesFilter';
 
 interface ExpenseEntryProps {
+  
   items: [ExpenseItemProps];
 }
 
@@ -23,6 +24,7 @@ function ExpenseEntry(props: ExpenseEntryProps) {
           amount={props.items[0].amount}
           date={props.items[0].date}
         />
+        
         <ExpenseItem
           title={props.items[1].title}
           amount={props.items[1].amount}
@@ -37,7 +39,8 @@ function ExpenseEntry(props: ExpenseEntryProps) {
           title={props.items[3].title}
           amount={props.items[3].amount}
           date={props.items[3].date}
-        />
+        /> 
+        
       </Card>
     </div>
   );
