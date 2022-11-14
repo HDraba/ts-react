@@ -9,6 +9,10 @@ interface enteredExpenseDataI {
   date: Date;
 }
 
+export interface NewExpenseI extends enteredExpenseDataI {
+    id: number
+}
+
 const NewExpense = () => {
   const saveExpenseDataHandler = (enteredExpenseData: enteredExpenseDataI) => {
     const expenseData = {

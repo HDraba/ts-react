@@ -2,7 +2,7 @@
 import './App.css'
 import Card from './components//UI/Card';
 import ExpenseEntry from './components/Expenses/ExpenseEntry';
-import NewExpense from './components/NewExpense/NewExpense';
+import NewExpense, { NewExpenseI } from './components/NewExpense/NewExpense';
 
 // components can be used like HTML elements
 // lower case = built-in HTML
@@ -31,6 +31,11 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ];
+
+  const addExpenseHandler = (expense: NewExpenseI) => {
+    console.log('in App.tsx');
+    console.log(expense);
+  }
 
   return (
     <div>
