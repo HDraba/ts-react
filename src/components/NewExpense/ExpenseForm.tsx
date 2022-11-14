@@ -28,7 +28,7 @@ const ExpenseForm = (expenseFormProps) => {
       date: new Date(enteredDate),
     };
 
-    expenseFormProps.onSaveExpenseData()
+    expenseFormProps.onSaveExpenseData(expenseData)
     setEnteredTitle('')
     setEnteredAmount('')
     setEnteredDate('')
