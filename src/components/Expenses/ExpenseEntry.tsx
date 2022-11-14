@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { ReactElement, useState } from 'react';
 import { Expense } from '../../App';
 import Card from '../UI/Card';
 import ExpenseItem from './ExpenseItem';
@@ -18,17 +18,20 @@ function ExpenseEntry(props: ExpenseEntryProps) {
     return expense.date.getFullYear().toString() === filteredYear;
   });
   // you can store jsx content in variables
-  let expensesContent = <p>No Entries</p>;
+
+  let expensesContent: ReactElement | ReactElement[] = <p>No Entries</p>;
 
   if (filteredExpenses.length > 0) {
-    expensesContent = filteredExpenses.map(expense => {
-      <ExpenseItem
-        key={expense.id}
-        title={expense.title}
-        amount={expense.amount}
-        date={expense.date}
-      />;
-    }); 
+    expensesContent = filteredExpenses.map((expense) => {
+      return (
+        <ExpenseItem
+          key={expense.id}
+          title={expense.title}
+          amount={expense.amount}
+          date={expense.date}
+        />
+      );
+    });
   }
 
   // if and for statements/loops are not possible - ternary expressions are possible
