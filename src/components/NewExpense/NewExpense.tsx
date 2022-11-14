@@ -1,7 +1,6 @@
 import './NewExpense.css';
 
 import ExpenseForm from './ExpenseForm';
-import ExpenseDate from '../Expenses/ExpenseDate';
 
 export interface enteredExpenseDataI {
   title: string;
@@ -9,8 +8,12 @@ export interface enteredExpenseDataI {
   date: Date;
 }
 
-export interface NewExpenseI extends enteredExpenseDataI {
-    id: number
+// export interface NewExpenseI extends enteredExpenseDataI {
+export interface NewExpenseI {
+  title: string;
+  amount: number;
+  date: Date;
+    id: string
 }
 
 export type NewExpenseProps = {
@@ -21,7 +24,7 @@ const NewExpense = (NewExpenseProps: NewExpenseProps) => {
   const saveExpenseDataHandler = (enteredExpenseData: enteredExpenseDataI) => {
     const expenseData: NewExpenseI = {
       ...enteredExpenseData,
-      id: Math.random(),
+      id: Math.random().toString(),
     };
     NewExpenseProps.onAddExpense(expenseData)
   };
