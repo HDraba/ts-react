@@ -3,7 +3,7 @@ import './NewExpense.css';
 import ExpenseForm from './ExpenseForm';
 import ExpenseDate from '../Expenses/ExpenseDate';
 
-interface enteredExpenseDataI {
+export interface enteredExpenseDataI {
   title: string;
   amount: number;
   date: Date;
@@ -13,7 +13,7 @@ export interface NewExpenseI extends enteredExpenseDataI {
     id: number
 }
 
-const NewExpense = () => {
+const NewExpense = (newExpenseProps) => {
   const saveExpenseDataHandler = (enteredExpenseData: enteredExpenseDataI) => {
     const expenseData = {
       ...enteredExpenseData,

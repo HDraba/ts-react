@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import './ExpenseForm.css';
+import {enteredExpenseDataI} from './NewExpense'
 
+type ExpenseFormProps = {
+  onSaveExpenseData: (enteredExpenseData: enteredExpenseDataI) => void
+}
 
-
-const ExpenseForm = (expenseFormProps) => {
+const ExpenseForm = (ExpenseFormProps: ExpenseFormProps) => {
   const [enteredTitle, setEnteredTitle] = useState('');
   const [enteredAmount, setEnteredAmount] = useState('');
   const [enteredDate, setEnteredDate] = useState('');
@@ -22,13 +25,13 @@ const ExpenseForm = (expenseFormProps) => {
   const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const expenseData = {
+    const expenseData: enteredExpenseDataI = {
       title: enteredTitle,
-      amount: enteredAmount,
+      amount: parseFloat(enteredAmount),
       date: new Date(enteredDate),
     };
 
-    expenseFormProps.onSaveExpenseData(expenseData)
+    ExpenseFormProps.onSaveExpenseData(expenseData)
     setEnteredTitle('')
     setEnteredAmount('')
     setEnteredDate('')
