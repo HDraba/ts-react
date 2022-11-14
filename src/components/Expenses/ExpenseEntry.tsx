@@ -1,6 +1,7 @@
 import React, { ReactElement, useState } from 'react';
 import { Expense } from '../../App';
 import Card from '../UI/Card';
+import ExpensesList from './ExpenesList';
 import ExpenseItem from './ExpenseItem';
 import ExpensesFilter from './ExpensesFilter';
 
@@ -19,20 +20,7 @@ function ExpenseEntry(props: ExpenseEntryProps) {
   });
   // you can store jsx content in variables
 
-  let expensesContent: ReactElement | ReactElement[] = <p>No Entries</p>;
 
-  if (filteredExpenses.length > 0) {
-    expensesContent = filteredExpenses.map((expense) => {
-      return (
-        <ExpenseItem
-          key={expense.id}
-          title={expense.title}
-          amount={expense.amount}
-          date={expense.date}
-        />
-      );
-    });
-  }
 
   // if and for statements/loops are not possible - ternary expressions are possible
   return (
@@ -42,7 +30,7 @@ function ExpenseEntry(props: ExpenseEntryProps) {
           selected={filteredYear}
           onChangeFilter={filterChangeHandler}
         />
-        {expensesContent}
+        <ExpensesList items={filteredExpenses} />
       </Card>
     </div>
   );

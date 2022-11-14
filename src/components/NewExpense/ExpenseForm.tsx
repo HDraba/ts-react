@@ -3,7 +3,9 @@ import './ExpenseForm.css';
 import {enteredExpenseDataI} from './NewExpense'
 
 type ExpenseFormProps = {
-  onSaveExpenseData: (enteredExpenseData: enteredExpenseDataI) => void
+  onSaveExpenseData: (enteredExpenseData: enteredExpenseDataI) => void; 
+  // can't be the right way
+  onCancel: () => void
 }
 
 const ExpenseForm = (ExpenseFormProps: ExpenseFormProps) => {
@@ -71,6 +73,7 @@ const ExpenseForm = (ExpenseFormProps: ExpenseFormProps) => {
         </div>
       </div>
       <div className="new-expense__actions">
+      <button type='button' onClick={ExpenseFormProps.onCancel}>Cancel</button>
         <button type="submit">Add Expense</button>
       </div>
     </form>
