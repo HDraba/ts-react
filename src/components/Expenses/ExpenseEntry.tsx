@@ -1,11 +1,12 @@
 import { useState } from 'react';
+import { Expense } from '../../App';
 import Card from '../UI/Card';
-import ExpenseItem, { ExpenseItemProps } from './ExpenseItem';
+import ExpenseItem from './ExpenseItem';
 import ExpensesFilter from './ExpensesFilter';
 
 interface ExpenseEntryProps {
   
-  items: [ExpenseItemProps];
+  items: Expense[]
 }
 
 function ExpenseEntry(props: ExpenseEntryProps) {
@@ -26,7 +27,7 @@ function ExpenseEntry(props: ExpenseEntryProps) {
         />
         
         <ExpenseItem
-          title={props.items[1].title}
+          title={props.items[1]!.title}
           amount={props.items[1].amount}
           date={props.items[1].date}
         />

@@ -9,8 +9,16 @@ import NewExpense, { NewExpenseI } from './components/NewExpense/NewExpense';
 
 // added another component to sum up the single entries into one dynamic component
 
+export interface Expense {
+  title: string,
+  amount: number,
+  date: Date,
+  id?: string  
+}
+
+
 function App() {
-  const expenses = [
+  const expenses: Expense[] = [
     {
       title: 'Toilet Paper',
       amount: 94.12,
@@ -37,7 +45,8 @@ function App() {
     },
   ];
 
-  const addExpenseHandler = (expense: NewExpenseI) => {
+
+  const addExpenseHandler = (expense: Expense) => {
     // expenses.push(expense)
     console.log(expenses);
   };

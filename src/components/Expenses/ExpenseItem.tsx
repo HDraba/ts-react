@@ -3,6 +3,7 @@ import {useState} from 'react'
 import Card from '../UI/Card';
 import ExpenseDate from './ExpenseDate';
 import './ExpenseItem.css';
+import { Expense } from '../../App'
 
 // only 1 root element per component - so 1 element where everything is based on
 // solution for now: wrapping everything in a div
@@ -12,12 +13,8 @@ import './ExpenseItem.css';
 // -->
 // <ExpenseDate />
 
-export interface ExpenseItemProps {
-  id?: string;
-  title: string;
-  amount: number;
-  date: Date;
-}
+type ExpenseItemProps = Expense
+
 function ExpenseItem(props: ExpenseItemProps) {
   
   // takes a value, this value will make the component function to be called again 
