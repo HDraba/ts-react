@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react';
+import React, { PropsWithChildren } from 'react';
 import './Card.css';
 
 // wrapping component
@@ -9,9 +9,9 @@ type CardProps = PropsWithChildren<{
 }>;
 // same as
 // type CardProps = PropsWithChildren<{
-// className: string,
-// children: React.ReactNode
-//   }>
+// className: string;
+// children: React.ReactNode;
+// }>;
 
 function Card(props: CardProps) {
   const classes = 'card ' + props.className;
