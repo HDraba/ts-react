@@ -13,13 +13,17 @@ export interface NewExpenseI extends enteredExpenseDataI {
     id: number
 }
 
-const NewExpense = (newExpenseProps) => {
+export type NewExpenseProps = {
+    onAddExpense: (NewExpense: NewExpenseI) => void
+}
+
+const NewExpense = (NewExpenseProps: NewExpenseProps) => {
   const saveExpenseDataHandler = (enteredExpenseData: enteredExpenseDataI) => {
-    const expenseData = {
+    const expenseData: NewExpenseI = {
       ...enteredExpenseData,
-      id: Math.random().toString(),
+      id: Math.random(),
     };
-    console.log(expenseData);
+    NewExpenseProps.onAddExpense(expenseData)
   };
 
   return (
