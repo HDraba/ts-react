@@ -46,12 +46,7 @@ function App() {
   return (
     <div>
       <NewExpense onAddExpense={addExpenseHandler} />
-      <Card className="expenses">
-        <ExpenseEntry content={expenses[0]} />
-        <ExpenseEntry content={expenses[1]} />
-        <ExpenseEntry content={expenses[2]} />
-        <ExpenseEntry content={expenses[3]} />
-      </Card>
+        <ExpenseEntry items={expenses} />
     </div>
   );
 }

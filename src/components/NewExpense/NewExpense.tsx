@@ -13,12 +13,12 @@ export interface NewExpenseI {
   title: string;
   amount: number;
   date: Date;
-    id: string
+  id: string;
 }
 
 export type NewExpenseProps = {
-    onAddExpense: (NewExpense: NewExpenseI) => void
-}
+  onAddExpense: (NewExpense: NewExpenseI) => void;
+};
 
 const NewExpense = (NewExpenseProps: NewExpenseProps) => {
   const saveExpenseDataHandler = (enteredExpenseData: enteredExpenseDataI) => {
@@ -26,7 +26,7 @@ const NewExpense = (NewExpenseProps: NewExpenseProps) => {
       ...enteredExpenseData,
       id: Math.random().toString(),
     };
-    NewExpenseProps.onAddExpense(expenseData)
+    NewExpenseProps.onAddExpense(expenseData);
   };
 
   return (
